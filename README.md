@@ -1,18 +1,62 @@
-# go-multi-opt-targets
+<div align="center">
 
-[Português](README.br.md)
+# go-multi-opt-targets <br>
 
-A ready-to-use catalog of selectable Genshin Optimizer `Custom Multi-Optimization Target` entries.
+[![CI](https://github.com/controlado/go-multi-opt-targets/actions/workflows/ci.yml/badge.svg)](https://github.com/controlado/go-multi-opt-targets/actions/workflows/ci.yml)
+[![release](https://img.shields.io/github/v/release/controlado/go-multi-opt-targets?display_name=tag&label=release)](https://github.com/controlado/go-multi-opt-targets/releases/latest)
+[![license](https://img.shields.io/github/license/controlado/go-multi-opt-targets)](LICENSE)
+[![json](https://img.shields.io/badge/data-JSON-292929)](https://github.com/controlado/go-multi-opt-targets/releases/latest/download/multi-opt-targets.json)
+[![schema](https://img.shields.io/badge/schema-JSON%20Schema-blue)](https://github.com/controlado/go-multi-opt-targets/releases/latest/download/schema.json) <br>
+![documentation](https://img.shields.io/badge/Documentation-gray)
+[![english](https://img.shields.io/badge/-English-blue)](README.md)
+[![português](https://img.shields.io/badge/-Português%20Brasileiro-blue)](README.br.md)
 
-Use it when you need target paths for tools, scripts, or imports and do not want to open the target selector for each character. The update workflow reads the Genshin Optimizer source code, builds the same character data used by the app, and publishes JSON files you can consume.
+Selectable Genshin Optimizer custom multi-optimization targets, published as JSON files. <br>
+Download the catalog and use the paths in tools, scripts, or imports.
 
-## Files
+</div>
+<br>
 
-- `data/multi-opt-targets.json`: readable catalog for inspection.
-- `data/multi-opt-targets.min.json`: compact catalog for apps and scripts.
-- `data/metadata.json`: Genshin Optimizer commit, version, generation date, and totals.
-- `data/schema.json`: JSON Schema for the catalog.
-- `checksums.txt`: SHA256 checksums for the published files.
+## Download
+
+| File | Use |
+| --- | --- |
+| [`multi-opt-targets.json`](https://github.com/controlado/go-multi-opt-targets/releases/latest/download/multi-opt-targets.json) | Readable catalog for inspection. |
+| [`multi-opt-targets.min.json`](https://github.com/controlado/go-multi-opt-targets/releases/latest/download/multi-opt-targets.min.json) | Compact catalog for apps and scripts. |
+| [`metadata.json`](https://github.com/controlado/go-multi-opt-targets/releases/latest/download/metadata.json) | Genshin Optimizer commit, version, generation date, and totals. |
+| [`schema.json`](https://github.com/controlado/go-multi-opt-targets/releases/latest/download/schema.json) | JSON Schema for the catalog. |
+| [`checksums.txt`](https://github.com/controlado/go-multi-opt-targets/releases/latest/download/checksums.txt) | SHA256 checksums for the published files. |
+
+## Current Data
+
+| Field | Value |
+| --- | --- |
+| Genshin Optimizer version | `10.36.0` |
+| Genshin Optimizer commit | `e156833` |
+| Characters | `128` |
+| Targets | `4245` |
+
+## Example
+
+Small slice from `data/multi-opt-targets.json`:
+
+```json
+{
+  "characterKey": "Chasca",
+  "sheetKey": "Chasca",
+  "target": {
+    "path": ["skill", "shellDmg"],
+    "section": "skill",
+    "key": "shellDmg",
+    "label": {
+      "en": "skill.shellDmg"
+    },
+    "labelSource": "path"
+  }
+}
+```
+
+## Catalog Shape
 
 Each character entry includes `characterKey`, `sheetKey`, optional `genderVariant`, and `targets`.
 
@@ -30,12 +74,16 @@ npm run ci
 
 ## Filters
 
-The published catalog follows the same custom multi-target selector behavior:
+The published catalog follows the custom multi-target selector behavior:
 
 - `showEmptyTargets: true`
 - `flatOnly: true`
 - `excludeHeal: true`
 - excluded sections: `basic`, `bonusStats`, `custom`, `character`, `teamBuff`
+
+## Note
+
+This independent project publishes data generated from the Genshin Optimizer source code.
 
 ## License
 
