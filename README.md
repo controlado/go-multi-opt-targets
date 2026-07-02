@@ -2,9 +2,9 @@
 
 # go-multi-opt-targets <br>
 
-[![CI](https://github.com/controlado/go-multi-opt-targets/actions/workflows/ci.yml/badge.svg)](https://github.com/controlado/go-multi-opt-targets/actions/workflows/ci.yml)
-[![release](https://img.shields.io/github/v/release/controlado/go-multi-opt-targets?display_name=tag&label=release)](https://github.com/controlado/go-multi-opt-targets/releases/latest)
 [![license](https://img.shields.io/github/license/controlado/go-multi-opt-targets)](LICENSE)
+[![CI](https://github.com/controlado/go-multi-opt-targets/actions/workflows/ci.yml/badge.svg)](https://github.com/controlado/go-multi-opt-targets/actions/workflows/ci.yml)
+[![release](https://img.shields.io/github/release/controlado/go-multi-opt-targets.svg?label=release)](https://github.com/controlado/go-multi-opt-targets/releases/latest) <br>
 [![json](https://img.shields.io/badge/data-JSON-292929)](https://github.com/controlado/go-multi-opt-targets/releases/latest/download/multi-opt-targets.json)
 [![schema](https://img.shields.io/badge/schema-JSON%20Schema-blue)](https://github.com/controlado/go-multi-opt-targets/releases/latest/download/schema.json) <br>
 ![documentation](https://img.shields.io/badge/Documentation-gray)
