@@ -1,0 +1,69 @@
+export function catalogSchema() {
+  return {
+    $schema: 'https://json-schema.org/draft/2020-12/schema',
+    $id: 'https://raw.githubusercontent.com/controlado/go-multi-opt-targets/main/data/schema.json',
+    title: 'Genshin Optimizer Multi-Optimization Target Catalog',
+    type: 'object',
+    additionalProperties: false,
+    required: ['schemaVersion', 'characters'],
+    properties: {
+      schemaVersion: { const: 1 },
+      characters: {
+        type: 'array',
+        items: {
+          type: 'object',
+          additionalProperties: false,
+          required: ['characterKey', 'sheetKey', 'targets'],
+          properties: {
+            characterKey: { type: 'string', minLength: 1 },
+            sheetKey: { type: 'string', minLength: 1 },
+            genderVariant: { enum: ['F', 'M'] },
+            targets: {
+              type: 'array',
+              items: {
+                type: 'object',
+                additionalProperties: false,
+                required: [
+                  'path',
+                  'section',
+                  'key',
+                  'multi',
+                  'variant',
+                  'unit',
+                  'isEmpty',
+                  'label',
+                  'labelSource',
+                ],
+                properties: {
+                  path: {
+                    type: 'array',
+                    minItems: 2,
+                    maxItems: 2,
+                    items: { type: 'string', minLength: 1 },
+                  },
+                  section: { type: 'string', minLength: 1 },
+                  key: { type: 'string', minLength: 1 },
+                  multi: { type: ['number', 'null'] },
+                  variant: { type: ['string', 'null'] },
+                  unit: { type: ['string', 'null'] },
+                  isEmpty: { type: 'boolean' },
+                  label: {
+                    type: 'object',
+                    additionalProperties: false,
+                    required: ['en'],
+                    properties: {
+                      en: { type: 'string', minLength: 1 },
+                    },
+                  },
+                  labelSource: {
+                    enum: ['info.name', 'info.path', 'path'],
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  } as const
+}
