@@ -1,0 +1,174 @@
+name: Update data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 5 * * *'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    outputs:
+      upstream_changed: ${{ steps.upstream.outputs.upstream_changed }}
+      go_sha: ${{ steps.upstream.outputs.go_sha }}
+      go_short_sha: ${{ steps.upstream.outputs.go_short_sha }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Check upstream
+        id: upstream
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha="$(git ls-remote https://github.com/frzyc/genshin-optimizer.git HEAD | cut -f1)"
+          current="$(node -e "try { console.log(require('./data/metadata.json').genshinOptimizer.commit) } catch { console.log('') }")"
+          echo "go_sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "go_short_sha=${sha:0:7}" >> "$GITHUB_OUTPUT"
+          if [ "$sha" = "$current" ]; then
+            echo "upstream_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "upstream_changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate current data
+        if: steps.upstream.outputs.upstream_changed == 'false'
+        run: npm run ci
+
+      - name: Clone Genshin Optimizer
+        if: steps.upstream.outputs.upstream_changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git init "$RUNNER_TEMP/genshin-optimizer"
+          git -C "$RUNNER_TEMP/genshin-optimizer" remote add origin https://github.com/frzyc/genshin-optimizer.git
+          git -C "$RUNNER_TEMP/genshin-optimizer" fetch --depth=1 origin "${{ steps.upstream.outputs.go_sha }}"
+          git -C "$RUNNER_TEMP/genshin-optimizer" checkout --detach "${{ steps.upstream.outputs.go_sha }}"
+
+      - name: Generate data
+        if: steps.upstream.outputs.upstream_changed == 'true'
+        env:
+          CYPRESS_INSTALL_BINARY: '0'
+        run: npm run update:data -- --go-root "$RUNNER_TEMP/genshin-optimizer" --go-sha "${{ steps.upstream.outputs.go_sha }}"
+
+      - name: Validate generated data
+        if: steps.upstream.outputs.upstream_changed == 'true'
+        run: npm run ci
+
+      - name: Upload generated data
+        if: steps.upstream.outputs.upstream_changed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-data
+          path: |
+            data/multi-opt-targets.json
+            data/multi-opt-targets.min.json
+            data/metadata.json
+            data/schema.json
+            checksums.txt
+
+  validate-generated:
+    needs: generate
+    if: needs.generate.outputs.upstream_changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: generated-data
+          path: .
+
+      - name: Validate downloaded data
+        run: npm run ci
+
+      - name: Upload validated data
+        uses: actions/upload-artifact@v4
+        with:
+          name: validated-data
+          path: |
+            data/multi-opt-targets.json
+            data/multi-opt-targets.min.json
+            data/metadata.json
+            data/schema.json
+            checksums.txt
+
+  publish:
+    needs: [generate, validate-generated]
+    if: needs.generate.outputs.upstream_changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: validated-data
+          path: .
+
+      - name: Commit data
+        id: commit
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- data checksums.txt; then
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data checksums.txt
+          git commit -m "chore(data): update GO targets to ${{ needs.generate.outputs.go_short_sha }}"
+          git -c http.extraheader="AUTHORIZATION: bearer $GITHUB_TOKEN" push origin HEAD:main
+          echo "committed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Release data
+        if: steps.commit.outputs.committed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="go-$(date -u +%Y%m%d)-${{ needs.generate.outputs.go_short_sha }}"
+          git tag "$tag"
+          git -c http.extraheader="AUTHORIZATION: bearer $GH_TOKEN" push origin "$tag"
+          gh release create "$tag" \
+            --title "$tag" \
+            --notes "Generated from frzyc/genshin-optimizer@${{ needs.generate.outputs.go_sha }}" \
+            data/multi-opt-targets.json \
+            data/multi-opt-targets.min.json \
+            data/metadata.json \
+            data/schema.json \
+            checksums.txt
