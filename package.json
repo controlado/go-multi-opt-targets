@@ -1,0 +1,29 @@
+{
+  "name": "go-multi-opt-targets",
+  "version": "0.1.0",
+  "description": "Generated Genshin Optimizer custom multi-optimization target catalog.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "npm@11.5.2",
+  "scripts": {
+    "ci": "npm run typecheck && npm test && npm run validate",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run test",
+    "update:data": "tsx src/update-data.ts",
+    "validate": "tsx src/validate-data.ts",
+    "write:checksums": "tsx src/write-checksums.ts",
+    "write:schema": "tsx src/write-schema.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.10",
+    "ajv": "^8.17.1",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
