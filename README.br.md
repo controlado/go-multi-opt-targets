@@ -1,29 +1,24 @@
 # go-multi-opt-targets
 
-Catálogo gerado das entradas selecionáveis do `Custom Multi-Optimization Target` do Genshin Optimizer para todos os personagens.
+[English](README.md)
 
-A fonte de verdade é o código-fonte do Genshin Optimizer, não a interface renderizada. O job de atualização clona `frzyc/genshin-optimizer`, importa os sheets reais dos personagens, calcula `UIData`, percorre `data.getDisplay()` e aplica os mesmos filtros do seletor usado no editor de multi-target customizado.
+Um catálogo pronto de entradas selecionáveis do `Custom Multi-Optimization Target` do Genshin Optimizer.
 
-## Dados
+Use quando precisar de caminhos de targets para ferramentas, scripts ou imports sem abrir o seletor de cada personagem. O workflow de atualização lê o código-fonte do Genshin Optimizer, monta os mesmos dados de personagem usados pelo app e publica arquivos JSON para consumo direto.
 
-- `data/multi-opt-targets.json`: catálogo legível.
-- `data/multi-opt-targets.min.json`: catálogo compacto.
-- `data/metadata.json`: commit fonte, versão do GO, data de geração, total de personagens e total de targets.
+## Arquivos
+
+- `data/multi-opt-targets.json`: catálogo legível para inspeção.
+- `data/multi-opt-targets.min.json`: catálogo compacto para apps e scripts.
+- `data/metadata.json`: commit do Genshin Optimizer, versão, data de geração e totais.
 - `data/schema.json`: JSON Schema do catálogo.
 - `checksums.txt`: checksums SHA256 dos arquivos publicados.
 
-Cada personagem contém `characterKey`, `sheetKey`, `genderVariant` quando aplicável, e `targets`.
+Cada personagem inclui `characterKey`, `sheetKey`, `genderVariant` quando aplicável, e `targets`.
 
-Cada target contém:
+Cada target inclui o `path` importável, `section`, `key`, flags básicas como `multi`, `variant`, `unit` e `isEmpty`, além de uma label em inglês quando o Genshin Optimizer expõe uma.
 
-- `path`: caminho importável no GO, por exemplo `["skill", "shellDmg"]`.
-- `section` e `key`: os dois segmentos do path separados para facilitar filtros.
-- `multi`, `variant`, `unit`, `isEmpty`.
-- `label.en` e `labelSource`.
-
-Labels são best-effort. Quando o GO expõe uma string direta, ela é usada. Labels que dependem de React/i18n usam fallback para `info.path` ou `path.join(".")`.
-
-## Atualização local
+## Atualização Local
 
 ```sh
 npm ci
@@ -31,11 +26,11 @@ npm run update:data
 npm run ci
 ```
 
-`update:data` cria ou sincroniza `work/genshin-optimizer`, instala as dependências do GO com download do binário do Cypress desativado e então regenera os arquivos publicados.
+`update:data` sincroniza `work/genshin-optimizer`, instala as dependências do Genshin Optimizer com download do binário do Cypress desativado e atualiza os arquivos publicados.
 
 ## Filtros
 
-O extrator espelha o modal de multi-target customizado:
+O catálogo publicado segue o comportamento do seletor de multi-target customizado:
 
 - `showEmptyTargets: true`
 - `flatOnly: true`

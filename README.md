@@ -1,27 +1,22 @@
 # go-multi-opt-targets
 
-Generated catalog of selectable Genshin Optimizer `Custom Multi-Optimization Target` entries for every character.
+[Português](README.br.md)
 
-The source of truth is the Genshin Optimizer codebase, not the rendered UI. The update job clones `frzyc/genshin-optimizer`, imports the real character sheets, computes `UIData`, walks `data.getDisplay()`, and applies the same target selector filters used by the custom multi-target editor.
+A ready-to-use catalog of selectable Genshin Optimizer `Custom Multi-Optimization Target` entries.
 
-## Data
+Use it when you need target paths for tools, scripts, or imports and do not want to open the target selector for each character. The update workflow reads the Genshin Optimizer source code, builds the same character data used by the app, and publishes JSON files you can consume.
 
-- `data/multi-opt-targets.json`: readable catalog.
-- `data/multi-opt-targets.min.json`: compact catalog.
-- `data/metadata.json`: source commit, GO version, generated time, character count, and target count.
+## Files
+
+- `data/multi-opt-targets.json`: readable catalog for inspection.
+- `data/multi-opt-targets.min.json`: compact catalog for apps and scripts.
+- `data/metadata.json`: Genshin Optimizer commit, version, generation date, and totals.
 - `data/schema.json`: JSON Schema for the catalog.
-- `checksums.txt`: SHA256 checksums for published data files.
+- `checksums.txt`: SHA256 checksums for the published files.
 
-Each character entry contains `characterKey`, `sheetKey`, optional `genderVariant`, and `targets`.
+Each character entry includes `characterKey`, `sheetKey`, optional `genderVariant`, and `targets`.
 
-Each target contains:
-
-- `path`: the importable GO target path, such as `["skill", "shellDmg"]`.
-- `section` and `key`: the two path segments split out for simple filtering.
-- `multi`, `variant`, `unit`, `isEmpty`.
-- `label.en` and `labelSource`.
-
-Labels are best effort. When GO exposes a direct string, it is used. React/i18n labels fall back to `info.path` or `path.join(".")`.
+Each target includes the importable `path`, its `section` and `key`, basic flags such as `multi`, `variant`, `unit`, and `isEmpty`, plus an English label when Genshin Optimizer exposes one.
 
 ## Local Update
 
@@ -31,11 +26,11 @@ npm run update:data
 npm run ci
 ```
 
-`update:data` creates or syncs `work/genshin-optimizer`, installs the GO dependencies with Cypress binary download disabled, and then regenerates the published files.
+`update:data` syncs `work/genshin-optimizer`, installs the Genshin Optimizer dependencies with Cypress binary downloads disabled, and refreshes the published files.
 
 ## Filters
 
-The extractor mirrors the custom multi-target modal:
+The published catalog follows the same custom multi-target selector behavior:
 
 - `showEmptyTargets: true`
 - `flatOnly: true`
