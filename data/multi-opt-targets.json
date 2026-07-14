@@ -11365,6 +11365,22 @@
         },
         {
           "isEmpty": true,
+          "key": "boltStellarDmg",
+          "label": {
+            "en": "passive1.boltStellarDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "passive1",
+            "boltStellarDmg"
+          ],
+          "section": "passive1",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
           "key": "burstNormalDmgInc",
           "label": {
             "en": "passive2.burstNormalDmgInc"
@@ -11390,6 +11406,22 @@
           "path": [
             "passive2",
             "boltDmgInc"
+          ],
+          "section": "passive2",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "a4_boltStellar_dmgInc",
+          "label": {
+            "en": "passive2.a4_boltStellar_dmgInc"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "passive2",
+            "a4_boltStellar_dmgInc"
           ],
           "section": "passive2",
           "unit": null,
@@ -42150,6 +42182,22 @@
           "variant": null
         },
         {
+          "isEmpty": true,
+          "key": "frostCoordDmg",
+          "label": {
+            "en": "skill.frostCoordDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "skill",
+            "frostCoordDmg"
+          ],
+          "section": "skill",
+          "unit": null,
+          "variant": null
+        },
+        {
           "isEmpty": false,
           "key": "dmg",
           "label": {
@@ -42164,6 +42212,54 @@
           "section": "burst",
           "unit": null,
           "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "stellarDmg",
+          "label": {
+            "en": "burst.stellarDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "burst",
+            "stellarDmg"
+          ],
+          "section": "burst",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "heal",
+          "label": {
+            "en": "constellation4.heal"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "constellation4",
+            "heal"
+          ],
+          "section": "constellation4",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "nodeC6Stellarconduct_dmgIncDisp",
+          "label": {
+            "en": "stellarconduct_dmgInc"
+          },
+          "labelSource": "info.path",
+          "multi": null,
+          "path": [
+            "constellation6",
+            "nodeC6Stellarconduct_dmgIncDisp"
+          ],
+          "section": "constellation6",
+          "unit": "",
+          "variant": "stellarconduct"
         },
         {
           "isEmpty": true,
@@ -43828,6 +43924,556 @@
             "dotDmg"
           ],
           "section": "burst",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "burstArcaneProjectionDmg",
+          "label": {
+            "en": "nicole.burstArcaneProjectionDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "nicole",
+            "burstArcaneProjectionDmg"
+          ],
+          "section": "nicole",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "c1ArcaneProjectionUnityDmg",
+          "label": {
+            "en": "nicole.c1ArcaneProjectionUnityDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "nicole",
+            "c1ArcaneProjectionUnityDmg"
+          ],
+          "section": "nicole",
+          "unit": null,
+          "variant": null
+        }
+      ]
+    },
+    {
+      "characterKey": "Sandrone",
+      "sheetKey": "Sandrone",
+      "targets": [
+        {
+          "isEmpty": true,
+          "key": "lunarcharged_dmg_",
+          "label": {
+            "en": "moonsign.lunarcharged_dmg_"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "moonsign",
+            "lunarcharged_dmg_"
+          ],
+          "section": "moonsign",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "lunarbloom_dmg_",
+          "label": {
+            "en": "moonsign.lunarbloom_dmg_"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "moonsign",
+            "lunarbloom_dmg_"
+          ],
+          "section": "moonsign",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "lunarcrystallize_dmg_",
+          "label": {
+            "en": "moonsign.lunarcrystallize_dmg_"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "moonsign",
+            "lunarcrystallize_dmg_"
+          ],
+          "section": "moonsign",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": false,
+          "key": "superconduct",
+          "label": {
+            "en": "superconduct_hit"
+          },
+          "labelSource": "info.path",
+          "multi": null,
+          "path": [
+            "reaction",
+            "superconduct"
+          ],
+          "section": "reaction",
+          "unit": "",
+          "variant": "superconduct"
+        },
+        {
+          "isEmpty": false,
+          "key": "shattered",
+          "label": {
+            "en": "shattered_hit"
+          },
+          "labelSource": "info.path",
+          "multi": null,
+          "path": [
+            "reaction",
+            "shattered"
+          ],
+          "section": "reaction",
+          "unit": "",
+          "variant": "shattered"
+        },
+        {
+          "isEmpty": true,
+          "key": "overloaded",
+          "label": {
+            "en": "overloaded_hit"
+          },
+          "labelSource": "info.path",
+          "multi": null,
+          "path": [
+            "reaction",
+            "overloaded"
+          ],
+          "section": "reaction",
+          "unit": "",
+          "variant": "overloaded"
+        },
+        {
+          "isEmpty": true,
+          "key": "electrocharged",
+          "label": {
+            "en": "electrocharged_hit"
+          },
+          "labelSource": "info.path",
+          "multi": null,
+          "path": [
+            "reaction",
+            "electrocharged"
+          ],
+          "section": "reaction",
+          "unit": "",
+          "variant": "electrocharged"
+        },
+        {
+          "isEmpty": true,
+          "key": "lunarcharged",
+          "label": {
+            "en": "lunarcharged_hit"
+          },
+          "labelSource": "info.path",
+          "multi": null,
+          "path": [
+            "reaction",
+            "lunarcharged"
+          ],
+          "section": "reaction",
+          "unit": "",
+          "variant": "lunarcharged"
+        },
+        {
+          "isEmpty": true,
+          "key": "burning",
+          "label": {
+            "en": "burning_hit"
+          },
+          "labelSource": "info.path",
+          "multi": null,
+          "path": [
+            "reaction",
+            "burning"
+          ],
+          "section": "reaction",
+          "unit": "",
+          "variant": "burning"
+        },
+        {
+          "isEmpty": true,
+          "key": "bloom",
+          "label": {
+            "en": "bloom_hit"
+          },
+          "labelSource": "info.path",
+          "multi": null,
+          "path": [
+            "reaction",
+            "bloom"
+          ],
+          "section": "reaction",
+          "unit": "",
+          "variant": "bloom"
+        },
+        {
+          "isEmpty": true,
+          "key": "burgeon",
+          "label": {
+            "en": "burgeon_hit"
+          },
+          "labelSource": "info.path",
+          "multi": null,
+          "path": [
+            "reaction",
+            "burgeon"
+          ],
+          "section": "reaction",
+          "unit": "",
+          "variant": "burgeon"
+        },
+        {
+          "isEmpty": true,
+          "key": "hyperbloom",
+          "label": {
+            "en": "hyperbloom_hit"
+          },
+          "labelSource": "info.path",
+          "multi": null,
+          "path": [
+            "reaction",
+            "hyperbloom"
+          ],
+          "section": "reaction",
+          "unit": "",
+          "variant": "hyperbloom"
+        },
+        {
+          "isEmpty": true,
+          "key": "lunarcrystallize",
+          "label": {
+            "en": "lunarcrystallize_hit"
+          },
+          "labelSource": "info.path",
+          "multi": null,
+          "path": [
+            "reaction",
+            "lunarcrystallize"
+          ],
+          "section": "reaction",
+          "unit": "",
+          "variant": "lunarcrystallize"
+        },
+        {
+          "isEmpty": false,
+          "key": "0",
+          "label": {
+            "en": "normal.0"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "normal",
+            "0"
+          ],
+          "section": "normal",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": false,
+          "key": "1",
+          "label": {
+            "en": "normal.1"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "normal",
+            "1"
+          ],
+          "section": "normal",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": false,
+          "key": "2",
+          "label": {
+            "en": "normal.2"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "normal",
+            "2"
+          ],
+          "section": "normal",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": false,
+          "key": "sweepDmg",
+          "label": {
+            "en": "charged.sweepDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "charged",
+            "sweepDmg"
+          ],
+          "section": "charged",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": false,
+          "key": "beamDmg",
+          "label": {
+            "en": "charged.beamDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "charged",
+            "beamDmg"
+          ],
+          "section": "charged",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "beamStellarDmg",
+          "label": {
+            "en": "charged.beamStellarDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "charged",
+            "beamStellarDmg"
+          ],
+          "section": "charged",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": false,
+          "key": "overdriveDmg",
+          "label": {
+            "en": "charged.overdriveDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "charged",
+            "overdriveDmg"
+          ],
+          "section": "charged",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": false,
+          "key": "dmg",
+          "label": {
+            "en": "plunging.dmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "plunging",
+            "dmg"
+          ],
+          "section": "plunging",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": false,
+          "key": "low",
+          "label": {
+            "en": "plunging.low"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "plunging",
+            "low"
+          ],
+          "section": "plunging",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": false,
+          "key": "high",
+          "label": {
+            "en": "plunging.high"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "plunging",
+            "high"
+          ],
+          "section": "plunging",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": false,
+          "key": "prismDmg1",
+          "label": {
+            "en": "skill.prismDmg1"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "skill",
+            "prismDmg1"
+          ],
+          "section": "skill",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": false,
+          "key": "prismDmg2",
+          "label": {
+            "en": "skill.prismDmg2"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "skill",
+            "prismDmg2"
+          ],
+          "section": "skill",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "prismStellarDmg",
+          "label": {
+            "en": "skill.prismStellarDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "skill",
+            "prismStellarDmg"
+          ],
+          "section": "skill",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": false,
+          "key": "bombardDmg",
+          "label": {
+            "en": "burst.bombardDmg"
+          },
+          "labelSource": "path",
+          "multi": 3,
+          "path": [
+            "burst",
+            "bombardDmg"
+          ],
+          "section": "burst",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": false,
+          "key": "rayDmg",
+          "label": {
+            "en": "burst.rayDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "burst",
+            "rayDmg"
+          ],
+          "section": "burst",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "rayStellarDmg",
+          "label": {
+            "en": "burst.rayStellarDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "burst",
+            "rayStellarDmg"
+          ],
+          "section": "burst",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "dmg",
+          "label": {
+            "en": "constellation4.dmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "constellation4",
+            "dmg"
+          ],
+          "section": "constellation4",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "dmg",
+          "label": {
+            "en": "constellation6.dmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "constellation6",
+            "dmg"
+          ],
+          "section": "constellation6",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "dmg2",
+          "label": {
+            "en": "constellation6.dmg2"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "constellation6",
+            "dmg2"
+          ],
+          "section": "constellation6",
           "unit": null,
           "variant": null
         },
@@ -53647,6 +54293,54 @@
         },
         {
           "isEmpty": true,
+          "key": "hit3",
+          "label": {
+            "en": "passive1.hit3"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "passive1",
+            "hit3"
+          ],
+          "section": "passive1",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "hit5",
+          "label": {
+            "en": "passive1.hit5"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "passive1",
+            "hit5"
+          ],
+          "section": "passive1",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "lusterDmg",
+          "label": {
+            "en": "passive1.lusterDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "passive1",
+            "lusterDmg"
+          ],
+          "section": "passive1",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
           "key": "icicleDmg",
           "label": {
             "en": "constellation6.icicleDmg"
@@ -53656,6 +54350,38 @@
           "path": [
             "constellation6",
             "icicleDmg"
+          ],
+          "section": "constellation6",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "hit5",
+          "label": {
+            "en": "constellation6.hit5"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "constellation6",
+            "hit5"
+          ],
+          "section": "constellation6",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "lusterDmg",
+          "label": {
+            "en": "constellation6.lusterDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "constellation6",
+            "lusterDmg"
           ],
           "section": "constellation6",
           "unit": null,
@@ -57337,6 +58063,118 @@
         },
         {
           "isEmpty": true,
+          "key": "dmg",
+          "label": {
+            "en": "passive1.dmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "passive1",
+            "dmg"
+          ],
+          "section": "passive1",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "stellarDmg",
+          "label": {
+            "en": "passive1.stellarDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "passive1",
+            "stellarDmg"
+          ],
+          "section": "passive1",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "dmg1",
+          "label": {
+            "en": "lockedPassive.dmg1"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "lockedPassive",
+            "dmg1"
+          ],
+          "section": "lockedPassive",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "dmg2",
+          "label": {
+            "en": "lockedPassive.dmg2"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "lockedPassive",
+            "dmg2"
+          ],
+          "section": "lockedPassive",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "dmg3",
+          "label": {
+            "en": "lockedPassive.dmg3"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "lockedPassive",
+            "dmg3"
+          ],
+          "section": "lockedPassive",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "dmg4",
+          "label": {
+            "en": "lockedPassive.dmg4"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "lockedPassive",
+            "dmg4"
+          ],
+          "section": "lockedPassive",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "dmg",
+          "label": {
+            "en": "lockedPassive.dmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "lockedPassive",
+            "dmg"
+          ],
+          "section": "lockedPassive",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
           "key": "burstArcaneProjectionDmg",
           "label": {
             "en": "nicole.burstArcaneProjectionDmg"
@@ -59862,6 +60700,38 @@
           "variant": null
         },
         {
+          "isEmpty": false,
+          "key": "skillContDmg",
+          "label": {
+            "en": "lockedPassive.skillContDmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "lockedPassive",
+            "skillContDmg"
+          ],
+          "section": "lockedPassive",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "lockDream_eleMas",
+          "label": {
+            "en": "eleMas"
+          },
+          "labelSource": "info.path",
+          "multi": null,
+          "path": [
+            "lockedPassive",
+            "lockDream_eleMas"
+          ],
+          "section": "lockedPassive",
+          "unit": "",
+          "variant": null
+        },
+        {
           "isEmpty": true,
           "key": "c1Awaiting_swirl_dmgInc",
           "label": {
@@ -59876,6 +60746,38 @@
           "section": "constellation1",
           "unit": "",
           "variant": "swirl"
+        },
+        {
+          "isEmpty": true,
+          "key": "dmg",
+          "label": {
+            "en": "constellation1.dmg"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "constellation1",
+            "dmg"
+          ],
+          "section": "constellation1",
+          "unit": null,
+          "variant": null
+        },
+        {
+          "isEmpty": true,
+          "key": "heal",
+          "label": {
+            "en": "constellation4.heal"
+          },
+          "labelSource": "path",
+          "multi": null,
+          "path": [
+            "constellation4",
+            "heal"
+          ],
+          "section": "constellation4",
+          "unit": null,
+          "variant": null
         },
         {
           "isEmpty": true,
