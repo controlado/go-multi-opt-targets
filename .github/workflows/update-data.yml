@@ -128,7 +128,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: false
+          persist-credentials: true
 
       - uses: actions/download-artifact@v4
         with:
@@ -137,8 +137,6 @@ jobs:
 
       - name: Commit data
         id: commit
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
@@ -151,7 +149,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data checksums.txt
           git commit -m "chore(data): update GO targets to ${{ needs.generate.outputs.go_short_sha }}"
-          git -c http.extraheader="AUTHORIZATION: bearer $GITHUB_TOKEN" push origin HEAD:main
+          git push origin HEAD:main
           echo "committed=true" >> "$GITHUB_OUTPUT"
 
       - name: Release data
@@ -163,7 +161,7 @@ jobs:
           set -euo pipefail
           tag="go-$(date -u +%Y%m%d)-${{ needs.generate.outputs.go_short_sha }}"
           git tag "$tag"
-          git -c http.extraheader="AUTHORIZATION: bearer $GH_TOKEN" push origin "$tag"
+          git push origin "$tag"
           gh release create "$tag" \
             --title "$tag" \
             --notes "Generated from frzyc/genshin-optimizer@${{ needs.generate.outputs.go_sha }}" \
