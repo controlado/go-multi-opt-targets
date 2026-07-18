@@ -99,7 +99,8 @@ function runExtractor(goRoot: string, extractorPath: string, outPath: string) {
       allowSyntheticDefaultImports: true,
       esModuleInterop: true,
       jsx: 'react-jsx',
-      module: 'CommonJS',
+      module: 'NodeNext',
+      moduleResolution: 'NodeNext',
     }),
     TS_NODE_PROJECT: path.join(goRoot, 'tsconfig.base.json'),
   }
